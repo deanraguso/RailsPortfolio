@@ -1,24 +1,7 @@
-# README
+# Portfolio website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Created by Dean Raguso
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Project Management done in PivotolTracker https://www.pivotaltracker.com/n/projects/2494384 
+- Version Control done with GitHub https://github.com/deanraguso/RailsPortfolio 
+  
