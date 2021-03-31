@@ -1,6 +1,6 @@
 class FoliosController < ApplicationController
     def index
-        @folio_items = Folio.all
+        @folio_items = Folio.all.order(created_at: :DESC)
     end
     def new
         @folio_item = Folio.new
@@ -19,9 +19,27 @@ class FoliosController < ApplicationController
         end
     end
 
+    def edit
+        @folio_item = Folio.find(params[:id])
+    end
+
+    def update
+        @folio_item = Folio.find(params[:id])
+
+        respond_to do |format|
+          if @folio_item.update(folio_params)
+            format.html { redirect_to folios_path, notice: "folio was successfully updated." }
+            format.json { render :show, status: :ok, location: @folio }
+          else
+            format.html { render :edit, status: :unprocessable_entity }
+            format.json { render json: @folio.errors, status: :unprocessable_entity }
+          end
+        end
+    end
+
     private
     # Only allow a list of trusted parameters through.
     def folio_params
-        params.require(:folio).permit(:title, :body)
-      end
+        params.require(:folio).permit(:title, :subtitle, :body)
+    end
 end
