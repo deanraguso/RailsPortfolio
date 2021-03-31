@@ -2,6 +2,9 @@ class FoliosController < ApplicationController
     def index
         @folio_items = Folio.all.order(created_at: :DESC)
     end
+    def show
+      @folio_item = Folio.find(params[:id])
+    end
     def new
         @folio_item = Folio.new
     end
