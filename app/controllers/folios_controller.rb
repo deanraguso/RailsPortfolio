@@ -40,6 +40,15 @@ class FoliosController < ApplicationController
         end
     end
 
+    def destroy
+      @folio_item = Folio.find(params[:id])
+      @folio_item.destroy
+      respond_to do |format|
+        format.html {redirect_to folios_url, notice: "Post was removed."}
+        format.json {head :no_content}
+      end
+    end
+
     private
     # Only allow a list of trusted parameters through.
     def folio_params
