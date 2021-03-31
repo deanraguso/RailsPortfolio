@@ -25,3 +25,5 @@ puts "5 Skills Created"
         thumb_image: "http://placehold.it/350x200"
     )
 end
+
+puts "9 Folios Created"

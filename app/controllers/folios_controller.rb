@@ -1,25 +1,23 @@
 class FoliosController < ApplicationController
     def index
-        @folio_items = Folio.all.order(created_at: :DESC)
+      @folio_items = Folio.all.order(created_at: :DESC)
     end
     def show
       @folio_item = Folio.find(params[:id])
     end
     def new
-        @folio_item = Folio.new
+      @folio_item = Folio.new
     end
     def create
-        @folio = Blog.new(folio_params)
-    
-        respond_to do |format|
-          if @folio.save
-            format.html { redirect_to folios_path, notice: "Folio was successfully created." }
-            format.json { render :show, status: :created, location: @folio }
-          else
-            format.html { render :new, status: :unprocessable_entity }
-            format.json { render json: @folio.errors, status: :unprocessable_entity }
-          end
+      @folio = Folio.new(folio_params)
+  
+      respond_to do |format|
+        if @folio.save
+          format.html { redirect_to folios_path, notice: "Folio was successfully created." }
+        else
+          format.html { render :new, status: :unprocessable_entity }
         end
+      end
     end
 
     def edit
