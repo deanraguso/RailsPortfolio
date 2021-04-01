@@ -1,4 +1,5 @@
 class Folio < ApplicationRecord
+    has_many :technologies
     validates_presence_of :title, :subtitle, :body
     include Placeholder
 

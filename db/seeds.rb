@@ -47,3 +47,10 @@ end
 
 puts "9 Folios Created"
 
+3.times do |t|
+    Folio.last.technologies.create!(
+        name: "Technology: #{t}"
+    )
+end
+
+puts "3 Technologies Created"
