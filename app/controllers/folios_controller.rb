@@ -1,4 +1,6 @@
 class FoliosController < ApplicationController
+  before_action :folio_params, only: [:create, ]
+
     def index
       @folio_items = Folio.all.order(created_at: :DESC)
     end
@@ -14,8 +16,7 @@ class FoliosController < ApplicationController
       3.times { @folio_item.technologies.build }
     end
     def create
-      @folio = Folio.new(params.require(:folio).permit(:title, :subtitle, 
-        :body, technologies_attributes: [:name]))
+      @folio = Folio.new(folio_params)
   
       respond_to do |format|
         if @folio.save
@@ -56,7 +57,10 @@ class FoliosController < ApplicationController
     private
     # Only allow a list of trusted parameters through.
     def folio_params
-        params.require(:folio).permit(:title, :subtitle, :body,
-        technologies_attributes: [:name])
+      params.require(:folio).permit(:title, 
+                                    :subtitle,
+                                    :body, 
+                                    technologies_attributes: [:name]
+                                    )
     end
 end
