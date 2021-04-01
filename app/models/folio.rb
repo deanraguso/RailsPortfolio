@@ -1,5 +1,6 @@
 class Folio < ApplicationRecord
     validates_presence_of :title, :subtitle, :body
+    include Placeholder
 
     def self.angular
         where(subtitle:"Angular")
@@ -9,7 +10,7 @@ class Folio < ApplicationRecord
     after_initialize :set_defaults
 
     def set_defaults
-        self.main_image ||= "http://placehold.it/600x400"
-        self.thumb_image ||= "http://placehold.it/350x200"
+        self.main_image ||= Placeholder.image_generator('600', '400')
+        self.thumb_image ||= Placeholder.image_generator('350', '200')
     end
 end
