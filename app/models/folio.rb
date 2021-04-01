@@ -1,5 +1,9 @@
 class Folio < ApplicationRecord
     has_many :technologies
+    accepts_nested_attributes_for :technologies, reject_if: lambda {
+        |attr| attr['name'].blank?
+    }
+
     validates_presence_of :title, :subtitle, :body
     include Placeholder
 
