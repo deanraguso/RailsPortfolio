@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
   <head>
     <title><%= @page_title %></title>
@@ -24,13 +24,7 @@
     
     <%= yield %>
 
-    <div>
-      <div><%= link_to "Home", root_path %></div>
-      <div><%= link_to "About", about_path %></div>
-      <div><%= link_to "Contact", contact_path %></div>
-      <div><%= link_to "Blog", blogs_path %></div>
-      <div><%= link_to "Portfolio", folios_path %></div>
-    </div>
+    <%= render 'shared/navbar' %>
 
     <% if session[:source]%>
       Thanks for visiting me from <%= session[:source] %>
