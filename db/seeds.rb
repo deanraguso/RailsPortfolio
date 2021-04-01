@@ -27,3 +27,9 @@ puts "5 Skills Created"
 end
 
 puts "9 Folios Created"
+
+2.times do |topic|
+    Topic.create!(
+        title: "Number #{topic}"
+    )
+end
