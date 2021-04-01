@@ -1,25 +1,29 @@
 class FoliosController < ApplicationController
     def index
-        @folio_items = Folio.all.order(created_at: :DESC)
+      @folio_items = Folio.all.order(created_at: :DESC)
     end
+    def angular
+      @angular_items = Folio.angular
+    end
+
     def show
       @folio_item = Folio.find(params[:id])
     end
     def new
-        @folio_item = Folio.new
+      @folio_item = Folio.new
+      3.times { @folio_item.technologies.build }
     end
     def create
-        @folio = Blog.new(folio_params)
-    
-        respond_to do |format|
-          if @folio.save
-            format.html { redirect_to folios_path, notice: "Folio was successfully created." }
-            format.json { render :show, status: :created, location: @folio }
-          else
-            format.html { render :new, status: :unprocessable_entity }
-            format.json { render json: @folio.errors, status: :unprocessable_entity }
-          end
+      @folio = Folio.new(params.require(:folio).permit(:title, :subtitle, 
+        :body, technologies_attributes: [:name]))
+  
+      respond_to do |format|
+        if @folio.save
+          format.html { redirect_to folios_path, notice: "Folio was successfully created." }
+        else
+          format.html { render :new, status: :unprocessable_entity }
         end
+      end
     end
 
     def edit
@@ -52,6 +56,7 @@ class FoliosController < ApplicationController
     private
     # Only allow a list of trusted parameters through.
     def folio_params
-        params.require(:folio).permit(:title, :subtitle, :body)
+        params.require(:folio).permit(:title, :subtitle, :body,
+        technologies_attributes: [:name])
     end
 end

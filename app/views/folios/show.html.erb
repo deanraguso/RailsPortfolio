@@ -2,3 +2,8 @@
 <h2><%= @folio_item.title %></h2>
 <h3><%= @folio_item.subtitle %></h3>
 <p><%= @folio_item.body %></p>
+<ul>
+    <% @folio_item.technologies.each do |i| %>
+        <li><%= i.name %></li>
+    <% end %>
+</ul>
