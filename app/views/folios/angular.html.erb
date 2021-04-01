@@ -1,0 +1,10 @@
+<h1>Angular Folio Items</h1>
+<%= link_to "Create New Portfolio", new_folio_path %>
+<% @angular_items.each do |i|%>
+    <h2><%= link_to i.title, folio_show_path(i.id)%></h2>
+    <p><%= i.subtitle%></p>
+    <p><%= i.body%></p>
+    <%= image_tag i.thumb_image unless i.thumb_image.nil? %>
+    <%= link_to "Edit", edit_folio_path(i.id)%>
+    <%= link_to "Delete", i, method: :delete, data: {confirm: "Are you sure you want to delete?"}%>
+<% end %>
