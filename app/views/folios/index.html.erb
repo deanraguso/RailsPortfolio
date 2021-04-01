@@ -4,6 +4,11 @@
     <h2><%= link_to i.title, folio_show_path(i.id)%></h2>
     <p><%= i.subtitle%></p>
     <p><%= i.body%></p>
+    <ul>
+    <% i.technologies.each do |i| %>
+        <li><%= i.name %></li>
+    <% end %>
+    </ul>
     <%= image_tag i.thumb_image unless i.thumb_image.nil? %>
     <%= link_to "Edit", edit_folio_path(i.id)%>
     <%= link_to "Delete", i, method: :delete, data: {confirm: "Are you sure you want to delete?"}%>

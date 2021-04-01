@@ -11,9 +11,11 @@ class FoliosController < ApplicationController
     end
     def new
       @folio_item = Folio.new
+      3.times { @folio_item.technologies.build }
     end
     def create
-      @folio = Folio.new(folio_params)
+      @folio = Folio.new(params.require(:folio).permit(:title, :subtitle, 
+        :body, technologies_attributes: [:name]))
   
       respond_to do |format|
         if @folio.save
@@ -54,6 +56,7 @@ class FoliosController < ApplicationController
     private
     # Only allow a list of trusted parameters through.
     def folio_params
-        params.require(:folio).permit(:title, :subtitle, :body)
+        params.require(:folio).permit(:title, :subtitle, :body,
+        technologies_attributes: [:name])
     end
 end
