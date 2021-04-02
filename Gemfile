@@ -57,3 +57,4 @@ gem 'jquery-rails'
 gem 'dean_view_tool', git: 'https://github.com/deanraguso/DeanViewTool'
 
 gem 'petergate', '~> 1.6', '>= 1.6.3'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'

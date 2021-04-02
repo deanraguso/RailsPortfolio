@@ -16,3 +16,11 @@ ActiveStorage.start()
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require jquery-ujs
+//= require jquery-ui
+//= require html.sortable
+//= require turbolinks
+//= require tree .
+
+require("packs/jquery-ui") //Not sure if this does anything
+require("packs/html_sortable")
