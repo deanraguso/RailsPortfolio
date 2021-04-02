@@ -1,0 +1,11 @@
+<h2><%= link_to folio_item.title, folio_show_path(folio_item.id)%></h2>
+<p><%= folio_item.subtitle%></p>
+<p><%= folio_item.body%></p>
+<ul>
+<% folio_item.technologies.each do |folio_item| %>
+    <li><%= folio_item.name %></li>
+<% end %>
+</ul>
+<%= image_tag folio_item.thumb_image unless folio_item.thumb_image.nil? %>
+<%= link_to "Edit", edit_folio_path(folio_item.id)%>
+<%= link_to "Delete", folio_item, method: :delete, data: {confirm: "Are you sure you want to delete?"}%>
