@@ -4,6 +4,10 @@ class Folio < ApplicationRecord
         |attr| attr['name'].blank?
     }
 
+    def self.by_position
+        order("position ASC")
+    end
+
     validates_presence_of :title, :subtitle, :body
     include Placeholder
 

@@ -4,7 +4,7 @@ class FoliosController < ApplicationController
   layout "folio"
 
     def index
-      @folio_items = Folio.all.order(created_at: :DESC)
+      @folio_items = Folio.all.by_position
     end
     def angular
       @angular_items = Folio.angular
