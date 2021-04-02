@@ -54,4 +54,4 @@ gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'jquery-rails'
 
-gem 'dean_view_tool', git: 'https://github.com/deanraguso/DeanViewTool', :branch => "any_of"
+gem 'dean_view_tool', git: 'https://github.com/deanraguso/DeanViewTool'

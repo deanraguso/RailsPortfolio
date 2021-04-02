@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/deanraguso/DeanViewTool
+  revision: cbcc27077b046fbb27b2b7631b8709cf6d8471b3
+  specs:
+    dean_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -216,6 +222,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   bootstrap (~> 5.0.0.beta2)
   byebug
+  dean_view_tool!
   devise (~> 4.2)
   friendly_id (~> 5.1)
   jbuilder (~> 2.7)

@@ -14,5 +14,10 @@ module ApplicationHelper
             greeting = "Thanks for visiting me from #{session[:source]}, currently on #{app} layout!"
             content_tag(:p, greeting)
         end
+        
+    end
+
+    def copyright_generator
+        DeanViewTool::Renderer.copyright "Dean Ragz", "All rights reserved"
     end
 end
