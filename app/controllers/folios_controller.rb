@@ -1,5 +1,6 @@
 class FoliosController < ApplicationController
   before_action :folio_params, only: [:create, ]
+  layout "folio"
 
     def index
       @folio_items = Folio.all.order(created_at: :DESC)

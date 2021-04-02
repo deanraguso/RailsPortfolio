@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head> 
     <title><%= @page_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content="<%= @seo_keywords%>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'folios', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
@@ -15,14 +15,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= render 'shared/navbar', location: 'top' %>
-
-
     <%= login_helper %>
-
+    
     <%= yield %>
 
-    <%= source_helper("Application") %>
+    <%= render 'shared/navbar', location:'top' %>
+
+    <%= source_helper("Portfolio") %>
 
   </body>
 </html>
