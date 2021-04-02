@@ -1,5 +1,6 @@
 class FoliosController < ApplicationController
-  before_action :folio_params, only: [:create, ]
+  before_action :folio_params, only: [:create ]
+  before_action :set_folio_item, only: [:show, :edit, :update, :destroy]
   layout "folio"
 
     def index
@@ -10,7 +11,6 @@ class FoliosController < ApplicationController
     end
 
     def show
-      @folio_item = Folio.find(params[:id])
     end
     def new
       @folio_item = Folio.new
@@ -29,11 +29,9 @@ class FoliosController < ApplicationController
     end
 
     def edit
-        @folio_item = Folio.find(params[:id])
     end
 
     def update
-        @folio_item = Folio.find(params[:id])
 
         respond_to do |format|
           if @folio_item.update(folio_params)
@@ -47,7 +45,6 @@ class FoliosController < ApplicationController
     end
 
     def destroy
-      @folio_item = Folio.find(params[:id])
       @folio_item.destroy
       respond_to do |format|
         format.html {redirect_to folios_url, notice: "Post was removed."}
@@ -63,5 +60,8 @@ class FoliosController < ApplicationController
                                     :body, 
                                     technologies_attributes: [:name]
                                     )
+    end
+    def set_folio_item
+      @folio_item = Folio.find(params[:id])
     end
 end
