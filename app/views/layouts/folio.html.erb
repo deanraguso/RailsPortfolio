@@ -15,11 +15,10 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= login_helper %>
-    
+    <%= render 'shared/navbar', location:'top' %>
     <%= yield %>
 
-    <%= render 'shared/navbar', location:'top' %>
+    
 
     <%= source_helper("Portfolio") %>
 
